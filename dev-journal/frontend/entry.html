@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev Journal — Detalhe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📓</div>
+        <span>Dev Journal</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html" class="nav-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          <span>Voltar</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="entry-detail-page">
+
+        <!-- Entry Header -->
+        <div class="entry-detail-header">
+          <div style="flex:1">
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap">
+              <span class="entry-date-badge" id="entry-date" style="font-size:.85rem;padding:4px 12px">—</span>
+              <span id="entry-mood" style="font-size:.95rem;color:var(--text-secondary)"></span>
+            </div>
+            <h1 class="entry-detail-title" id="entry-title">Carregando...</h1>
+          </div>
+          <div class="entry-detail-actions">
+            <button class="btn btn-secondary" id="btn-edit">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+              Editar
+            </button>
+            <button class="btn btn-danger" id="btn-delete">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
+              Excluir
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="detail-section">
+          <div class="detail-stats-grid">
+            <div class="detail-stat">
+              <div class="detail-stat-value" id="entry-hours">—</div>
+              <div class="detail-stat-label">⏱ Horas estudadas</div>
+            </div>
+            <div class="detail-stat">
+              <div class="detail-stat-value" id="entry-commits">—</div>
+              <div class="detail-stat-label">💻 Commits</div>
+            </div>
+            <div class="detail-stat" style="grid-column:span 2">
+              <div style="display:flex;align-items:center;gap:10px">
+                <div class="productivity-dots" id="entry-prod-dots"></div>
+                <span id="entry-prod-label" style="font-size:.85rem;color:var(--text-secondary)"></span>
+              </div>
+              <div class="detail-stat-label">⭐ Produtividade</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="detail-section">
+          <div class="detail-section-title">Resumo do Dia</div>
+          <p class="detail-text" id="entry-summary"></p>
+        </div>
+
+        <!-- Technologies -->
+        <div class="detail-section">
+          <div class="detail-section-title">Tecnologias Utilizadas</div>
+          <div class="entry-tech-list" id="entry-techs"></div>
+        </div>
+
+        <!-- Challenges -->
+        <div class="detail-section" id="challenges-section">
+          <div class="detail-section-title">Desafios Enfrentados</div>
+          <p class="detail-text" id="entry-challenges"></p>
+        </div>
+
+        <!-- Learnings -->
+        <div class="detail-section" id="learnings-section">
+          <div class="detail-section-title">Aprendizados</div>
+          <p class="detail-text" id="entry-learnings"></p>
+        </div>
+
+        <!-- Links -->
+        <div class="detail-section" id="entry-links-section">
+          <div class="detail-section-title">Links Relevantes</div>
+          <div class="links-list" id="entry-links"></div>
+        </div>
+
+        <!-- Footer -->
+        <p style="text-align:center;color:var(--text-secondary);font-size:.75rem;margin-top:8px">
+          Registrado em <span id="entry-created-at">—</span>
+        </p>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Delete Modal -->
+  <div class="modal-overlay" id="delete-modal">
+    <div class="modal">
+      <div class="modal-icon">🗑️</div>
+      <h2 class="modal-title">Excluir registro?</h2>
+      <p class="modal-text">
+        Esta ação não pode ser desfeita. O registro será permanentemente removido do seu diário.
+      </p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="btn-cancel-delete">Cancelar</button>
+        <button class="btn btn-danger" id="btn-confirm-delete">Excluir</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/entry.js"></script>
+</body>
+</html>

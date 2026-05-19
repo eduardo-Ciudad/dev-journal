@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev Journal — Novo Registro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <div class="logo-icon">📓</div>
+        <span>Dev Journal</span>
+      </a>
+      <nav class="nav">
+        <a href="../index.html" class="nav-link">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          <span>Voltar</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+
+      <div class="form-page">
+
+        <div class="page-header">
+          <h1 class="page-title" id="page-title">Novo Registro</h1>
+          <p class="page-subtitle">Documente seu progresso de hoje</p>
+        </div>
+
+        <div class="form-card">
+          <form id="entry-form" novalidate>
+            <div class="form-grid">
+
+              <!-- Date -->
+              <div class="form-group">
+                <label class="form-label" for="field-date">Data <span>*</span></label>
+                <input type="date" id="field-date" class="form-control" required />
+                <span class="error-msg" id="err-date"></span>
+              </div>
+
+              <!-- Mood -->
+              <div class="form-group">
+                <label class="form-label">Humor do Dia</label>
+                <div class="mood-group">
+                  <button type="button" class="mood-btn" data-value="💪 Focado">💪 Focado</button>
+                  <button type="button" class="mood-btn" data-value="🚀 Produtivo">🚀 Produtivo</button>
+                  <button type="button" class="mood-btn" data-value="🎯 Determinado">🎯 Determinado</button>
+                  <button type="button" class="mood-btn" data-value="😄 Animado">😄 Animado</button>
+                  <button type="button" class="mood-btn" data-value="😴 Cansado">😴 Cansado</button>
+                  <button type="button" class="mood-btn" data-value="😤 Frustrado">😤 Frustrado</button>
+                </div>
+              </div>
+
+              <!-- Title -->
+              <div class="form-group span-2">
+                <label class="form-label" for="field-title">Título do Dia <span>*</span></label>
+                <input type="text" id="field-title" class="form-control" placeholder="Ex: Dia 13 — Desafio de Java" maxlength="150" required />
+                <span class="error-msg" id="err-title"></span>
+              </div>
+
+              <!-- Summary -->
+              <div class="form-group span-2">
+                <label class="form-label" for="field-summary">Resumo <span>*</span></label>
+                <textarea id="field-summary" class="form-control" placeholder="O que você fez hoje? Descreva suas atividades principais..." rows="4" required></textarea>
+                <span class="error-msg" id="err-summary"></span>
+              </div>
+
+              <!-- Technologies -->
+              <div class="form-group span-2">
+                <label class="form-label" for="field-technologies">Tecnologias Utilizadas</label>
+                <input type="text" id="field-technologies" class="form-control" placeholder="Java, Spring Boot, JUnit, Docker" />
+                <span class="form-hint">Separe por vírgula</span>
+              </div>
+
+              <!-- Challenges -->
+              <div class="form-group span-2">
+                <label class="form-label" for="field-challenges">Desafios Enfrentados</label>
+                <textarea id="field-challenges" class="form-control" placeholder="Quais foram as maiores dificuldades do dia?" rows="3"></textarea>
+              </div>
+
+              <!-- Learnings -->
+              <div class="form-group span-2">
+                <label class="form-label" for="field-learnings">Aprendizados</label>
+                <textarea id="field-learnings" class="form-control" placeholder="O que você aprendeu? Quais insights importantes obteve?" rows="3"></textarea>
+              </div>
+
+              <!-- Study Hours -->
+              <div class="form-group">
+                <label class="form-label" for="field-study_hours">Horas Estudadas</label>
+                <input type="number" id="field-study_hours" class="form-control" placeholder="0" min="0" max="24" step="0.5" value="0" />
+                <span class="error-msg" id="err-study_hours"></span>
+              </div>
+
+              <!-- Commits -->
+              <div class="form-group">
+                <label class="form-label" for="field-commits">Commits Realizados</label>
+                <input type="number" id="field-commits" class="form-control" placeholder="0" min="0" value="0" />
+                <span class="error-msg" id="err-commits"></span>
+              </div>
+
+              <!-- Links -->
+              <div class="form-group span-2">
+                <label class="form-label" for="field-links">Links Relevantes</label>
+                <input type="text" id="field-links" class="form-control" placeholder="https://github.com/..., https://artigo.com/..." />
+                <span class="form-hint">Separe múltiplos links por vírgula</span>
+              </div>
+
+              <!-- Productivity -->
+              <div class="form-group span-2">
+                <label class="form-label">Nível de Produtividade</label>
+                <div class="rating-group">
+                  <button type="button" class="rating-btn" data-value="1">1</button>
+                  <button type="button" class="rating-btn" data-value="2">2</button>
+                  <button type="button" class="rating-btn" data-value="3">3</button>
+                  <button type="button" class="rating-btn" data-value="4">4</button>
+                  <button type="button" class="rating-btn" data-value="5">5</button>
+                </div>
+                <span class="form-hint">1 = Muito Baixa &nbsp;|&nbsp; 5 = Máxima</span>
+                <span class="error-msg" id="err-productivity"></span>
+              </div>
+
+            </div>
+
+            <!-- Actions -->
+            <div class="form-actions">
+              <button type="button" id="btn-cancel" class="btn btn-secondary">Cancelar</button>
+              <button type="submit" id="btn-submit" class="btn btn-primary">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Criar Registro
+              </button>
+            </div>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="js/api.js"></script>
+  <script src="js/form.js"></script>
+</body>
+</html>

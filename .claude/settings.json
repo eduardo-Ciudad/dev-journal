@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "c:\\Users\\eduar\\OneDrive\\�rea de Trabalho\\radmap-pesoal\\dev-journal\\backend"
+    ],
+    "allow": [
+      "Bash(node -e ' *)"
+    ]
+  }
+}

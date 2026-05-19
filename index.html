@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev Journal — Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/dev-journal/frontend/css/style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">📓</div>
+        <span>Dev Journal</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="nav-link active">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Dashboard</span>
+        </a>
+        <button id="btn-export" class="nav-link" style="background:none;border:none;color:var(--text-secondary);cursor:pointer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>Exportar</span>
+        </button>
+        <a id="btn-new-entry" class="btn-new" style="cursor:pointer">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Novo Registro
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+
+      <!-- Page Header -->
+      <div class="page-header">
+        <h1 class="page-title">Meu Diário de Estudos</h1>
+        <p class="page-subtitle">Acompanhe sua evolução diária como desenvolvedor</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📅</div>
+          <div class="stat-value" id="stat-entries">—</div>
+          <div class="stat-label">Dias Registrados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">⏱️</div>
+          <div class="stat-value" id="stat-hours">—</div>
+          <div class="stat-label">Horas Estudadas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">💻</div>
+          <div class="stat-value" id="stat-commits">—</div>
+          <div class="stat-label">Total de Commits</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon">🔥</div>
+          <div class="stat-value" id="stat-streak">—</div>
+          <div class="stat-label">Streak Atual</div>
+        </div>
+      </div>
+
+      <!-- Top Technologies -->
+      <div class="detail-section" style="margin-bottom:32px">
+        <div class="section-header">
+          <h2 class="section-title">Top Tecnologias</h2>
+        </div>
+        <div class="tech-chart" id="tech-chart">
+          <div class="skeleton skeleton-line full" style="height:18px"></div>
+          <div class="skeleton skeleton-line full" style="height:18px"></div>
+          <div class="skeleton skeleton-line medium" style="height:18px"></div>
+        </div>
+      </div>
+
+      <!-- Entries Section -->
+      <div>
+        <div class="section-header" style="margin-bottom:16px">
+          <h2 class="section-title">Registros <span id="results-count" style="font-weight:400;color:var(--text-secondary);font-size:.85rem"></span></h2>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-bar">
+          <div class="search-wrap">
+            <span class="search-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </span>
+            <input type="text" id="search-input" class="search-input" placeholder="Buscar por título, resumo, tecnologia..." />
+          </div>
+          <select id="filter-tech" class="filter-select">
+            <option value="">Tecnologia</option>
+          </select>
+          <select id="filter-prod" class="filter-select">
+            <option value="">Produtividade</option>
+            <option value="5">⭐⭐⭐⭐⭐ 5 — Máxima</option>
+            <option value="4">⭐⭐⭐⭐ 4 — Alta</option>
+            <option value="3">⭐⭐⭐ 3 — Média</option>
+            <option value="2">⭐⭐ 2 — Baixa</option>
+            <option value="1">⭐ 1 — Mínima</option>
+          </select>
+          <select id="filter-mood" class="filter-select">
+            <option value="">Humor</option>
+            <option value="Focado">💪 Focado</option>
+            <option value="Produtivo">🚀 Produtivo</option>
+            <option value="Determinado">🎯 Determinado</option>
+            <option value="Animado">😄 Animado</option>
+            <option value="Cansado">😴 Cansado</option>
+            <option value="Frustrado">😤 Frustrado</option>
+          </select>
+          <button class="btn-clear-filters" id="btn-clear-filters">Limpar</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="entries-grid" id="entries-grid">
+          <!-- Cards rendered by JS -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="/dev-journal/frontend/js/api.js"></script>
+  <script src="/dev-journal/frontend/js/dashboard.js"></script>
+</body>
+</html>
