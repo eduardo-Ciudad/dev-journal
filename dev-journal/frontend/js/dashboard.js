@@ -1,13 +1,9 @@
-// Compute base paths from this script's absolute URL so navigation works
-// regardless of where Live Server / the browser is serving from.
-// dashboard.js is always at <base>/frontend/js/dashboard.js
+// dashboard.js is always at <absolute-base>/frontend/js/dashboard.js
+// Strip "js/dashboard.js" to get the frontend/ directory URL
 const _dashSrc = document.currentScript ? document.currentScript.src : '';
 const FRONTEND_BASE = _dashSrc
-  ? _dashSrc.replace(/frontend\/js\/dashboard\.js[\s\S]*$/, 'frontend/')
-  : 'frontend/';
-const INDEX_URL = _dashSrc
-  ? _dashSrc.replace(/frontend\/js\/dashboard\.js[\s\S]*$/, 'index.html')
-  : '../index.html';
+  ? _dashSrc.replace(/js\/dashboard\.js[\s\S]*$/, '')
+  : '/dev-journal/frontend/';
 
 // Toast system
 const toastContainer = document.getElementById('toast-container');
